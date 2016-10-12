@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>On/Off</title>
+<meta charset='utf-8' />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,  minimum-scale=1.0"> 
+</head>
+
+<style>
+#wrapper {
+	position:absolute;
+	top:0; 
+	bottom:0; 
+	right:0; 
+	left:0; 
+	overflow:hidden; 
+}
+	
+#keypad {
+	position: absolute;
+    display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	width:200px;
+	height:400px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px #777777; 
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
+
+.buttonspace {
+	position: relative;
+	width: 50%;
+	height: 25%;
+}
+
+.button {
+	position: absolute;
+	width: 80%;
+	height: 80%;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #FFFFFF;
+	border-radius: 50%;
+	cursor: pointer;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size:18pt;
+	color: black;
+}
+
+@media (max-width:360px){
+
+#keypad {
+	width:100%;
+	height:100%;
+}
+
+.button {
+	width: 80%;
+	height: 80%;
+	font-size:7vw;
+}
+
+}
+
+@media (orientation: portrait) {
+}
+
+@media (orientation: landscape) {
+}
+
+
+</style>
+
+<body>
+<div id="wrapper">
+	<div id="keypad">
+		<div class="buttonspace"><div class="button" id="b1" onclick="ws.send('7')"  >1</div></div>
+		<div class="buttonspace"><div class="button" id="b2" onclick="ws.send('11')" >2</div></div>
+		<div class="buttonspace"><div class="button" id="b3" onclick="ws.send('13')" >3</div></div>
+		<div class="buttonspace"><div class="button" id="b4" onclick="ws.send('15')" >4</div></div>
+		<div class="buttonspace"><div class="button" id="b5" onclick="ws.send('29')" >5</div></div>
+		<div class="buttonspace"><div class="button" id="b6" onclick="ws.send('31')" >6</div></div>
+		<div class="buttonspace"><div class="button" id="b7" onclick="ws.send('33')" >7</div></div>
+		<div class="buttonspace"><div class="button" id="b8" onclick="ws.send('35')" >8</div></div>
+	</div>                                                                   
+</div>
+</body>
+
+<script>
+
+var ws = new WebSocket('ws://192.168.1.109:1010', 'echo-protocol');
+
+ws.addEventListener("message", function(e) {
+    var msg = e.data;
+	if (msg=="7true")   document.getElementById('b1').style.backgroundColor = '#FFFA0A';
+	if (msg=="7false")  document.getElementById('b1').style.backgroundColor = '#AAAAAA'; 
+	if (msg=="11true")  document.getElementById('b2').style.backgroundColor = '#FFFA0A';
+	if (msg=="11false") document.getElementById('b2').style.backgroundColor = '#AAAAAA'; 
+	if (msg=="13true")  document.getElementById('b3').style.backgroundColor = '#FFFA0A';
+	if (msg=="13false") document.getElementById('b3').style.backgroundColor = '#AAAAAA'; 
+	if (msg=="15true")  document.getElementById('b4').style.backgroundColor = '#FFFA0A';
+	if (msg=="15false") document.getElementById('b4').style.backgroundColor = '#AAAAAA'; 
+	if (msg=="29true")  document.getElementById('b5').style.backgroundColor = '#FFFA0A';
+	if (msg=="29false") document.getElementById('b5').style.backgroundColor = '#AAAAAA'; 
+	if (msg=="31true")  document.getElementById('b6').style.backgroundColor = '#FFFA0A';
+	if (msg=="31false") document.getElementById('b6').style.backgroundColor = '#AAAAAA'; 
+	if (msg=="33true")  document.getElementById('b7').style.backgroundColor = '#FFFA0A';
+	if (msg=="33false") document.getElementById('b7').style.backgroundColor = '#AAAAAA'; 
+	if (msg=="35true")  document.getElementById('b8').style.backgroundColor = '#FFFA0A';
+	if (msg=="35false") document.getElementById('b8').style.backgroundColor = '#AAAAAA'; 
+});
+
+
+</script>
+
+
+</html>
+
+
