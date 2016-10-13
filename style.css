@@ -1,6 +1,18 @@
+container-fluid {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.bg-1 {
+    background-color: #e5e5e5; /* LightGrey */
+    color: #fffff;
+    padding-bottom: 30px;
+
+}
+
 #wrapper {
-	position:absolute;
-	top:0;
+	position: absolute;
+	top:200px;
 	bottom:0;
 	right:0;
 	left:0;
@@ -12,25 +24,26 @@
     display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	width:200px;
-	height:400px;
+	width:500px;
+	height:200px;
 	border-radius: 5px;
 	box-shadow: 0px 0px 5px #777777;
 	top: 50%;
 	left: 50%;
 	margin-right: -50%;
+  padding-top: 40px;
 	transform: translate(-50%, -50%);
 }
 
 .buttonspace {
 	position: relative;
-	width: 50%;
+	width: 25%;
 	height: 25%;
 }
 
 .button {
 	position: absolute;
-	width: 80%;
+	width: 50%;
 	height: 80%;
 	top: 50%;
 	left: 50%;
