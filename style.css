@@ -1,0 +1,69 @@
+#wrapper {
+	position:absolute;
+	top:0;
+	bottom:0;
+	right:0;
+	left:0;
+	overflow:hidden;
+}
+
+#keypad {
+	position: absolute;
+    display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	width:200px;
+	height:400px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px #777777;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
+
+.buttonspace {
+	position: relative;
+	width: 50%;
+	height: 25%;
+}
+
+.button {
+	position: absolute;
+	width: 80%;
+	height: 80%;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #FFFFFF;
+	border-radius: 50%;
+	cursor: pointer;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size:18pt;
+	color: black;
+}
+
+@media (max-width:360px){
+
+#keypad {
+	width:100%;
+	height:100%;
+}
+
+.button {
+	width: 80%;
+	height: 80%;
+	font-size:7vw;
+}
+
+}
+
+@media (orientation: portrait) {
+}
+
+@media (orientation: landscape) {
+}
