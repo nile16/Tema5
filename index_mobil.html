@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Fjärrkontroll</title>
+<meta charset='utf-8' />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,  minimum-scale=1.0"> 
+</head>
+
+<style>
+#wrapper {
+	position: absolute;
+	top: 0; 
+	bottom: 0; 
+	right: 0; 
+	left: 0; 
+	overflow: hidden; 
+}
+	
+#keypad {
+	position: absolute;
+    display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	width: 200px;
+	height: 400px;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 5px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size: 16pt;
+	color: #000;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
+
+.button {
+	position: relative;
+	width: 90%;
+	height: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0px 0px 5px #777777; 
+	border-radius: 10px;
+	background-color: #AAAAAA;
+	cursor: pointer;
+}
+
+
+@media (orientation: portrait) and (max-width:200px) {
+#keypad {
+	width: 100%;
+	font-size: 10vw;
+	}
+}
+
+@media (orientation: portrait) and (max-height:400px) {
+#keypad {
+	height: 100%;
+	}
+}
+
+@media (orientation: portrait) and (max-width:200px) and (max-height:400px) {
+#keypad {
+	border-radius: 0px;
+	}
+}
+
+@media (orientation: landscape) and (max-height:400px) {
+#keypad {
+	width: 400px;
+	height: 200px;
+	}
+
+.button {
+	width: 45%;
+	height: 20%;
+	}
+}
+
+@media (orientation: landscape) and (max-width:400px) {
+#keypad {
+	width: 100%;
+	font-size: 5vw;
+	}
+}
+
+@media (orientation: landscape) and (max-height:200px) {
+#keypad {
+	height: 100%;
+	}
+}
+
+@media (orientation: landscape) and (max-width:400px) and (max-height:200px) {
+#keypad {
+	border-radius: 0px;
+	}
+}
+
+</style>
+
+<body>
+<div id="wrapper">
+	<div id="keypad">
+		<div class="button" id="b1" onclick="ws.send('7')"  >Kaffebryggare</div>
+		<div class="button" id="b2" onclick="ws.send('11')" >Ytterlampor</div>
+		<div class="button" id="b3" onclick="ws.send('13')" >Garageport</div>
+		<div class="button" id="b4" onclick="ws.send('15')" >Motorvärmare</div>
+		<div class="button" id="b5" onclick="ws.send('29')" >Laddare</div>
+		<div class="button" id="b6" onclick="ws.send('31')" >Bla bla</div>
+		<div class="button" id="b7" onclick="ws.send('33')" >Bla bla</div>
+		<div class="button" id="b8" onclick="ws.send('35')" >Bla bla</div>
+	</div>                                                                   
+</div>
+</body>
+
+<script>
+
+var ws = new WebSocket('ws://192.168.1.112:1010', 'echo-protocol');
+var colorOn  = 'radial-gradient(circle, #bbFFbb, #00FF00)';
+var colorOff = '#115511';
+
+ws.addEventListener("message", function(e) {
+    var msg = e.data;
+	if (msg=="7true")   document.getElementById('b1').style.background = colorOn; 
+	if (msg=="7false")  document.getElementById('b1').style.background = colorOff; 
+	if (msg=="11true")  document.getElementById('b2').style.background = colorOn;
+	if (msg=="11false") document.getElementById('b2').style.background = colorOff; 
+	if (msg=="13true")  document.getElementById('b3').style.background = colorOn;
+	if (msg=="13false") document.getElementById('b3').style.background = colorOff; 
+	if (msg=="15true")  document.getElementById('b4').style.background = colorOn;
+	if (msg=="15false") document.getElementById('b4').style.background = colorOff; 
+	if (msg=="29true")  document.getElementById('b5').style.background = colorOn;
+	if (msg=="29false") document.getElementById('b5').style.background = colorOff; 
+	if (msg=="31true")  document.getElementById('b6').style.background = colorOn;
+	if (msg=="31false") document.getElementById('b6').style.background = colorOff; 
+	if (msg=="33true")  document.getElementById('b7').style.background = colorOn;
+	if (msg=="33false") document.getElementById('b7').style.background = colorOff; 
+	if (msg=="35true")  document.getElementById('b8').style.background = colorOn;
+	if (msg=="35false") document.getElementById('b8').style.background = colorOff; 
+});
+
+
+</script>
+
+
+</html>
+
+
