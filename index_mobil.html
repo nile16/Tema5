@@ -5,19 +5,23 @@
 <head>
 <title>Fjärrkontroll</title>
 <meta charset='utf-8' />
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,  minimum-scale=1.0"> 
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,  minimum-scale=1.0">
 </head>
 
 <style>
+body {
+	background-color: #e5e5e5;
+}
+
 #wrapper {
 	position: absolute;
-	top: 0; 
-	bottom: 0; 
-	right: 0; 
-	left: 0; 
-	overflow: hidden; 
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	overflow: hidden;
 }
-	
+
 #keypad {
 	position: absolute;
     display: flex;
@@ -44,7 +48,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	box-shadow: 0px 0px 5px #777777; 
+	box-shadow: 0px 0px 5px #777777;
 	border-radius: 10px;
 	background-color: #AAAAAA;
 	cursor: pointer;
@@ -104,6 +108,7 @@
 </style>
 
 <body>
+
 <div id="wrapper">
 	<div id="keypad">
 		<div class="button" id="b1" onclick="ws.send('7')"  >Kaffebryggare</div>
@@ -114,7 +119,7 @@
 		<div class="button" id="b6" onclick="ws.send('31')" >Bla bla</div>
 		<div class="button" id="b7" onclick="ws.send('33')" >Bla bla</div>
 		<div class="button" id="b8" onclick="ws.send('35')" >Bla bla</div>
-	</div>                                                                   
+	</div>
 </div>
 </body>
 
@@ -126,22 +131,22 @@ var colorOff = '#115511';
 
 ws.addEventListener("message", function(e) {
     var msg = e.data;
-	if (msg=="7true")   document.getElementById('b1').style.background = colorOn; 
-	if (msg=="7false")  document.getElementById('b1').style.background = colorOff; 
+	if (msg=="7true")   document.getElementById('b1').style.background = colorOn;
+	if (msg=="7false")  document.getElementById('b1').style.background = colorOff;
 	if (msg=="11true")  document.getElementById('b2').style.background = colorOn;
-	if (msg=="11false") document.getElementById('b2').style.background = colorOff; 
+	if (msg=="11false") document.getElementById('b2').style.background = colorOff;
 	if (msg=="13true")  document.getElementById('b3').style.background = colorOn;
-	if (msg=="13false") document.getElementById('b3').style.background = colorOff; 
+	if (msg=="13false") document.getElementById('b3').style.background = colorOff;
 	if (msg=="15true")  document.getElementById('b4').style.background = colorOn;
-	if (msg=="15false") document.getElementById('b4').style.background = colorOff; 
+	if (msg=="15false") document.getElementById('b4').style.background = colorOff;
 	if (msg=="29true")  document.getElementById('b5').style.background = colorOn;
-	if (msg=="29false") document.getElementById('b5').style.background = colorOff; 
+	if (msg=="29false") document.getElementById('b5').style.background = colorOff;
 	if (msg=="31true")  document.getElementById('b6').style.background = colorOn;
-	if (msg=="31false") document.getElementById('b6').style.background = colorOff; 
+	if (msg=="31false") document.getElementById('b6').style.background = colorOff;
 	if (msg=="33true")  document.getElementById('b7').style.background = colorOn;
-	if (msg=="33false") document.getElementById('b7').style.background = colorOff; 
+	if (msg=="33false") document.getElementById('b7').style.background = colorOff;
 	if (msg=="35true")  document.getElementById('b8').style.background = colorOn;
-	if (msg=="35false") document.getElementById('b8').style.background = colorOff; 
+	if (msg=="35false") document.getElementById('b8').style.background = colorOff;
 });
 
 
@@ -149,5 +154,3 @@ ws.addEventListener("message", function(e) {
 
 
 </html>
-
-

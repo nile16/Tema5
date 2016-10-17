@@ -6,13 +6,13 @@ container-fluid {
 .bg-1 {
     background-color: #e5e5e5; /* LightGrey */
     color: #fffff;
-    padding-bottom: 30px;
+    padding-bottom: 25px;
 
 }
 
 #wrapper {
 	position: absolute;
-	top:200px;
+	top:170px;
 	bottom:0;
 	right:0;
 	left:0;
@@ -31,18 +31,18 @@ container-fluid {
 	top: 50%;
 	left: 50%;
 	margin-right: -50%;
-  padding-top: 40px;
 	transform: translate(-50%, -50%);
 }
 
 .buttonspace {
 	position: relative;
-	width: 25%;
+	width: 50%;
 	height: 25%;
 }
 
 .button {
 	position: absolute;
+
 	width: 50%;
 	height: 80%;
 	top: 50%;
